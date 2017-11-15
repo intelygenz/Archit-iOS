@@ -1,0 +1,6 @@
+framework module Kommander {
+  umbrella header "Kommander-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,36 @@
+PODS:
+  - Cucumberish (1.3.0)
+  - Kingfisher (4.2.0)
+  - Kommander (0.9.3)
+  - NetClient (0.3.5):
+    - NetClient/Core (= 0.3.5)
+    - NetClient/URLSession (= 0.3.5)
+  - NetClient/Core (0.3.5)
+  - NetClient/URLSession (0.3.5):
+    - NetClient/Core
+  - Reusable (4.0.0):
+    - Reusable/Storyboard (= 4.0.0)
+    - Reusable/View (= 4.0.0)
+  - Reusable/Storyboard (4.0.0)
+  - Reusable/View (4.0.0)
+  - SwiftLint (0.24.0)
+
+DEPENDENCIES:
+  - Cucumberish
+  - Kingfisher
+  - Kommander
+  - NetClient
+  - Reusable
+  - SwiftLint
+
+SPEC CHECKSUMS:
+  Cucumberish: 76f542be7b62b1a01ebc6f968be3e002f9403931
+  Kingfisher: 9ee7e788d8ba07c3f21ce0d43f33cec310a4f781
+  Kommander: 34bf09d910308fbfd584234896e6e25931b752ff
+  NetClient: 99cbb60c94c195666fcf723213deff4213f198a7
+  Reusable: 98e5fff1e0e2e00872199699b276dde08ee56c07
+  SwiftLint: a014c92b4664e8b13f380f8640a51bb1733778ba
+
+PODFILE CHECKSUM: 76fd68a25130619b340a1fb7194b6a4f7049924c
+
+COCOAPODS: 1.3.1

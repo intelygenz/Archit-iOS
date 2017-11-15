@@ -1,0 +1,6 @@
+framework module Cucumberish {
+  umbrella header "Cucumberish-umbrella.h"
+
+  export *
+  module * { export * }
+}
