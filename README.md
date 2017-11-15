@@ -7,6 +7,7 @@
 [![Twitter](https://img.shields.io/badge/contact-@intelygenz-0FABFF.svg?style=flat)](http://twitter.com/intelygenz)
 [![Build Status](https://travis-ci.org/intelygenz/Archit-iOS.svg?branch=master)](https://travis-ci.org/intelygenz/Archit-iOS)
 [![License](https://img.shields.io/github/license/intelygenz/Archit-iOS.svg?style=flat)](https://github.com/intelygenz/Archit-iOS/blob/master/LICENSE)
+[![codebeat badge](https://codebeat.co/badges/fbe5c86d-c2b3-4d7d-9ba0-93b72508e310)](https://codebeat.co/projects/github-com-intelygenz-archit-ios-master)
 
 This repository includes a demo application that uses [OMDb API](http://www.omdbapi.com) and implements the Archit architecture.
 
