@@ -2,7 +2,7 @@
   <img width="40%" height="40%" src="https://github.com/intelygenz/Archit-iOS/raw/develop/Logo.png">
 </p>
 
-## Intelygenz iOS Architecture
+# Intelygenz iOS Architecture
 
 [![Twitter](https://img.shields.io/badge/contact-@intelygenz-0FABFF.svg?style=flat)](http://twitter.com/intelygenz)
 [![Build Status](https://travis-ci.org/intelygenz/Archit-iOS.svg?branch=master)](https://travis-ci.org/intelygenz/Archit-iOS)
@@ -10,7 +10,7 @@
 
 This repository includes a demo application that uses [OMDb API](http://www.omdbapi.com) and implements the Archit architecture.
 
-### 🔨 Xcode Configuration
+## 🔨 Xcode Configuration
 
 * You should enable **Xcode Text Editing** options:
 	1. Line numbers. (Specify a line to a mate or search for a crash)
@@ -20,7 +20,7 @@ This repository includes a demo application that uses [OMDb API](http://www.omdb
 
 	![Xcode Text Editing](https://raw.githubusercontent.com/intelygenz/Archit-iOS/master/Resources/xcode_text_editing.png)
  
-### 🔧 Project Configuration
+## 🔧 Project Configuration
 
 * Create your application **core framework**:
 
@@ -72,9 +72,9 @@ This repository includes a demo application that uses [OMDb API](http://www.omdb
 
 	![Unsatisfiable Constraints Breakpoint](https://raw.githubusercontent.com/intelygenz/Archit-iOS/master/Resources/unsatisfiable_constraints_breakpoint.png)
 
-### 🤓 Usage
+## 🤓 Usage
 
-##### AppManager
+### AppManager
 
 We delegate all responsibilities of the AppDelegate to an AppManager under our control, testable and that will be in charge of initializing all third-party frameworks that need initialization in the didFinishLaunching for example.
 
@@ -82,7 +82,7 @@ In addition, if we need location services, notifications, etc. We will create in
 
 ![AppManager](https://raw.githubusercontent.com/intelygenz/Archit-iOS/master/Resources/app_manager.png)
 
-##### VCI (ViewController Controller Interactor)
+### VCI (ViewController Controller Interactor)
 
 We will create base view controllers for each of the native view controllers we need, all the application view controllers will inherit from these base view controllers.
 
@@ -92,7 +92,7 @@ Each controller will have an interactor who will be in charge of calling the asy
 
 ![VCI (ViewController Controller Interactor)](https://raw.githubusercontent.com/intelygenz/Archit-iOS/master/Resources/vci.png)
 
-##### Core Framework
+### Core Framework
 
 Only the StorageManager knows the existence of the persistence framework that is used.
 
@@ -106,7 +106,7 @@ The service has tasks for each network API call related with the same context (a
 
 ![Core Framework](https://raw.githubusercontent.com/intelygenz/Archit-iOS/master/Resources/core_framework.png)
 
-##### CocoaPods
+### CocoaPods
 
 Every networking layer must be implemented around **[Net](https://github.com/intelygenz/NetClient-iOS/blob/master/Core/Net.swift)** protocol.
 
