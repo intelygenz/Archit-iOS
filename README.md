@@ -133,6 +133,8 @@ To display the progress of an ongoing task, you could use **[SVProgressHUD](http
 
 To securely store data, we use **[Valet](https://github.com/square/Valet)**.
 
+As logging library, we love **[XCGLogger](https://github.com/DaveWoodCom/XCGLogger)**.
+
 ## ❤️ Etc.
 
 * Contributions are very welcome.
