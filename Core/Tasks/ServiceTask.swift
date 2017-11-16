@@ -9,9 +9,21 @@ open class ServiceTask: ServiceTaskProtocol {
     private static let net: Net = {
         let net = NetURLSession()
         net.addRequestInterceptor { requestBuilder in
-            return requestBuilder.addURLParameter(NetworkServiceConstants.Parameters.key, value: NetworkServiceConstants.Values.key)
+            requestBuilder.addURLParameter(NetworkServiceConstants.Parameters.key, value: NetworkServiceConstants.Values.key)
                 .addURLParameter(NetworkServiceConstants.Parameters.format, value: NetworkServiceConstants.Values.Format.json.rawValue)
                 .addURLParameter(NetworkServiceConstants.Parameters.version, value: NetworkServiceConstants.Values.version)
+            log.debug(requestBuilder.build().debugDescription)
+            return requestBuilder
+        }
+        net.addResponseInterceptor { responseBuilder in
+            let response = responseBuilder.build()
+            log.debug(response.debugDescription)
+            do {
+                if let responseObject: [AnyHashable: Any] = try response.object() {
+                    log.verbose(responseObject)
+                }
+            } catch {}
+            return responseBuilder
         }
         return net
     }()

@@ -8,12 +8,19 @@ PODS:
   - NetClient/Core (0.3.5)
   - NetClient/URLSession (0.3.5):
     - NetClient/Core
+  - ObjcExceptionBridging (1.0.1):
+    - ObjcExceptionBridging/ObjcExceptionBridging (= 1.0.1)
+  - ObjcExceptionBridging/ObjcExceptionBridging (1.0.1)
   - Reusable (4.0.0):
     - Reusable/Storyboard (= 4.0.0)
     - Reusable/View (= 4.0.0)
   - Reusable/Storyboard (4.0.0)
   - Reusable/View (4.0.0)
   - SwiftLint (0.24.0)
+  - XCGLogger (6.0.1):
+    - XCGLogger/Core (= 6.0.1)
+  - XCGLogger/Core (6.0.1):
+    - ObjcExceptionBridging
 
 DEPENDENCIES:
   - Cucumberish
@@ -22,15 +29,18 @@ DEPENDENCIES:
   - NetClient
   - Reusable
   - SwiftLint
+  - XCGLogger
 
 SPEC CHECKSUMS:
   Cucumberish: 76f542be7b62b1a01ebc6f968be3e002f9403931
   Kingfisher: 9ee7e788d8ba07c3f21ce0d43f33cec310a4f781
   Kommander: 34bf09d910308fbfd584234896e6e25931b752ff
   NetClient: 99cbb60c94c195666fcf723213deff4213f198a7
+  ObjcExceptionBridging: c30e00eb3700467e695faeea30e26e18bd445001
   Reusable: 98e5fff1e0e2e00872199699b276dde08ee56c07
   SwiftLint: a014c92b4664e8b13f380f8640a51bb1733778ba
+  XCGLogger: b4ca980580108cfeaf221afe158f5d89c1be22e0
 
-PODFILE CHECKSUM: 76fd68a25130619b340a1fb7194b6a4f7049924c
+PODFILE CHECKSUM: 6e863f7f984be258f0a4db40f1efedf01540a387
 
 COCOAPODS: 1.3.1
