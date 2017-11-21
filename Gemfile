@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 
 gem 'rake'
 gem 'cocoapods'
+gem 'xcode-install'
 gem 'fastlane'
 gem 'danger-gitlab'
 gem 'danger-swiftlint'
