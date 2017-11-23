@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0910"
+   LastUpgradeVersion = "0900"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,65 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "810963C61FB0C42E00B35959"
+               BlueprintIdentifier = "NT_479522252821"
                BuildableName = "Archit.app"
                BlueprintName = "Archit"
+               ReferencedContainer = "container:Archit.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "NT_909704880233"
+               BuildableName = "DomainTests.xctest"
+               BlueprintName = "DomainTests"
+               ReferencedContainer = "container:Archit.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "NT_189925025312"
+               BuildableName = "CoreTests.xctest"
+               BlueprintName = "CoreTests"
+               ReferencedContainer = "container:Archit.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "NT_878592839632"
+               BuildableName = "ArchitTests.xctest"
+               BlueprintName = "ArchitTests"
+               ReferencedContainer = "container:Archit.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "NT_614110924649"
+               BuildableName = "ArchitUITests.xctest"
+               BlueprintName = "ArchitUITests"
                ReferencedContainer = "container:Archit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -34,9 +90,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "810963F21FB0C42E00B35959"
-               BuildableName = "ArchitTests.xctest"
-               BlueprintName = "ArchitTests"
+               BlueprintIdentifier = "NT_909704880233"
+               BuildableName = "DomainTests.xctest"
+               BlueprintName = "DomainTests"
                ReferencedContainer = "container:Archit.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -44,17 +100,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "810963FD1FB0C42E00B35959"
-               BuildableName = "ArchitUITests.xctest"
-               BlueprintName = "ArchitUITests"
-               ReferencedContainer = "container:Archit.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "810823321FB0C594009F0C43"
+               BlueprintIdentifier = "NT_189925025312"
                BuildableName = "CoreTests.xctest"
                BlueprintName = "CoreTests"
                ReferencedContainer = "container:Archit.xcodeproj">
@@ -64,9 +110,19 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "810823551FB0C5AA009F0C43"
-               BuildableName = "DomainTests.xctest"
-               BlueprintName = "DomainTests"
+               BlueprintIdentifier = "NT_878592839632"
+               BuildableName = "ArchitTests.xctest"
+               BlueprintName = "ArchitTests"
+               ReferencedContainer = "container:Archit.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "NT_614110924649"
+               BuildableName = "ArchitUITests.xctest"
+               BlueprintName = "ArchitUITests"
                ReferencedContainer = "container:Archit.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -74,7 +130,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "810963C61FB0C42E00B35959"
+            BlueprintIdentifier = "NT_479522252821"
             BuildableName = "Archit.app"
             BlueprintName = "Archit"
             ReferencedContainer = "container:Archit.xcodeproj">
@@ -98,7 +154,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "810963C61FB0C42E00B35959"
+            BlueprintIdentifier = "NT_479522252821"
             BuildableName = "Archit.app"
             BlueprintName = "Archit"
             ReferencedContainer = "container:Archit.xcodeproj">
@@ -117,7 +173,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "810963C61FB0C42E00B35959"
+            BlueprintIdentifier = "NT_479522252821"
             BuildableName = "Archit.app"
             BlueprintName = "Archit"
             ReferencedContainer = "container:Archit.xcodeproj">

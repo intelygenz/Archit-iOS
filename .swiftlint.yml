@@ -43,6 +43,7 @@ large_tuple: # warn user when using 3 values in tuple, give error if there are 4
   - 4
 
 excluded:
+  - .build
   - fastlane
   - Pods
 

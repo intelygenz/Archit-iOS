@@ -1,0 +1,69 @@
+name: Archit
+targets:
+  Archit:
+    type: application
+    platform: iOS
+    sources:
+      - Shared
+      - Archit
+    settings:
+      PRODUCT_BUNDLE_IDENTIFIER: com.intelygenz.Archit
+    dependencies:
+      - target: Core
+      - target: Domain
+    prebuildScripts:
+      - script: ${PODS_ROOT}/SwiftLint/swiftlint
+        name: Swiftlint
+    scheme:
+      testTargets:
+        - DomainTests
+        - CoreTests
+        - ArchitTests
+        - ArchitUITests
+      codeCoverageEnabled: true
+  ArchitTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources: ArchitTests
+  ArchitUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources: ArchitUITests
+    settings:
+      TEST_TARGET_NAME: Archit
+  Core:
+    type: framework
+    platform: iOS
+    sources:
+      - Shared
+      - Core
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.intelygenz.Archit.Core
+    dependencies:
+      - target: Domain
+    scheme:
+      testTargets:
+        - CoreTests
+      codeCoverageEnabled: true
+  CoreTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources: CoreTests
+  Domain:
+    type: framework
+    platform: iOS
+    sources:
+      - Shared
+      - Domain
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.intelygenz.Archit.Domain
+    scheme:
+      testTargets:
+        - DomainTests
+      codeCoverageEnabled: true
+  DomainTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources: DomainTests
