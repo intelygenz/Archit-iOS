@@ -21,6 +21,10 @@ if ! gem which bundler ; then
 	echo "Bundler gem installed!"
 fi
 
+echo "Installing Swift dependencies..."
+swift package resolve
+echo "Generating project..."
+xcodegen
 echo "Installing Ruby dependencies..."
 bundle install
 echo "Installing CocoaPods dependencies..."
