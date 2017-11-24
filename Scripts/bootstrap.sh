@@ -21,8 +21,11 @@ if ! gem which bundler ; then
 	echo "Bundler gem installed!"
 fi
 
-echo "Installing Swift dependencies..."
-swift package resolve
+echo "Downloading XcodeGen..."
+git clone https://github.com/yonaskolb/XcodeGen.git
+echo "Installing XcodeGen..."
+make -C XcodeGen
+rm -rf XcodeGen
 echo "Generating project..."
 xcodegen
 echo "Installing Ruby dependencies..."
