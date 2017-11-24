@@ -4,6 +4,7 @@ before_install:
 - brew tap yonaskolb/XcodeGen https://github.com/yonaskolb/XcodeGen.git
 - brew install XcodeGen
 - xcodegen
+- bundle exec pod repo update
 script:
 - xcodebuild -workspace Archit.xcworkspace -scheme Archit -destination "platform=iOS
   Simulator,name=iPhone X,OS=11.1" -configuration Debug -enableCodeCoverage YES clean
