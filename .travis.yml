@@ -1,8 +1,8 @@
 language: swift
 osx_image: xcode9.1
 before_install:
-- git clone https://github.com/yonaskolb/XcodeGen.git
-- sudo make -C XcodeGen
+- brew tap yonaskolb/XcodeGen https://github.com/yonaskolb/XcodeGen.git
+- brew install XcodeGen
 - xcodegen
 script:
 - xcodebuild -workspace Archit.xcworkspace -scheme Archit -destination "platform=iOS
