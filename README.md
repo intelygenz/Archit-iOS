@@ -21,55 +21,37 @@ This repository contains an iOS architecture documentation with a sample applica
 
 	![Xcode Text Editing](https://raw.githubusercontent.com/intelygenz/Archit-iOS/master/Resources/xcode_text_editing.png)
  
+## 🔧 Project Installation
+
+* Install **[XcodeGen](https://github.com/yonaskolb/XcodeGen#installing)**:
+
+```
+$ brew tap yonaskolb/XcodeGen https://github.com/yonaskolb/XcodeGen.git
+$ brew install XcodeGen
+```
+
+* Clone **[Archit](https://github.com/intelygenz/Archit-iOS/releases)**:
+
+```
+$ git clone https://github.com/intelygenz/Archit-iOS.git
+$ cd Archit-iOS
+```
+
+* Run **[XcodeGen](https://github.com/yonaskolb/XcodeGen#usage)** in Archit clone root directory:
+
+```
+$ xcodegen
+```
+
 ## 🔧 Project Configuration
 
-* Create your application **core framework**:
-
-	Open Xcode and select File -> New -> Target...
-
-	![New Target](https://raw.githubusercontent.com/intelygenz/Archit-iOS/master/Resources/new_target.png)
-
-	Select Cocoa Touch Framework:
-
-	![Cocoa Touch Framework](https://raw.githubusercontent.com/intelygenz/Archit-iOS/master/Resources/cocoa_touch_framework.png)
-
-	Configure your application core:
-
-	![New Core](https://raw.githubusercontent.com/intelygenz/Archit-iOS/master/Resources/new_core.png)
-
-	This core framework will include API clients, persistence... everything you need to reuse in the future, for example, in an application extension.
-
-	Remember provide protocols for every service or storage that you create, everything must work syncronous.
-
-	Don't import to the core framework anything related with UIKit or any other forbidden framework or dependency (pod) in an application extension.
-	If you need it in the future, you can make an extension in the application target.
- 
-* Create your application **domain framework**:
-
-	This domain framework will include domain models.
-	
-	Don't import to the domain framework anything related with UIKit or any other forbidden framework or dependency (pod) in an application extension.
-	If you need it in the future, you can make an extension in the application target.
-
-* Configure the **schemes**:
-
-	Edit all schemes:
-
-	![Edit Scheme](https://raw.githubusercontent.com/intelygenz/Archit-iOS/master/Resources/edit_scheme.png)
-
-	For each scheme, enable "Gather Coverage Data" option and "Share" the scheme:
-
-	![Gather Coverage Data](https://raw.githubusercontent.com/intelygenz/Archit-iOS/master/Resources/gather_coverage_data.png)
+* Configure the **breakpoints**:
 
 	In the Breakpoint navigator, create an "Exception Breakpoint...":
 
 	![Exception Breakpoint](https://raw.githubusercontent.com/intelygenz/Archit-iOS/master/Resources/exception_breakpoint.png)
 
-	And "Share Breakpoint":
-
-	![Share Breakpoint](https://raw.githubusercontent.com/intelygenz/Archit-iOS/master/Resources/share_breakpoint.png)
-
-	Also create a "Symbolic Breakpoint..." with "UIViewAlertForUnsatisfiableConstraints" as "Symbol" and "Share Breakpoint":
+	Also create a "Symbolic Breakpoint..." with "UIViewAlertForUnsatisfiableConstraints" as "Symbol":
 
 	![Unsatisfiable Constraints Breakpoint](https://raw.githubusercontent.com/intelygenz/Archit-iOS/master/Resources/unsatisfiable_constraints_breakpoint.png)
 
