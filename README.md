@@ -37,7 +37,7 @@ $ git clone https://github.com/intelygenz/Archit-iOS.git
 $ cd Archit-iOS
 ```
 
-* Run **[XcodeGen](https://github.com/yonaskolb/XcodeGen#usage)** in Archit clone root directory:
+* Run **[XcodeGen](https://github.com/yonaskolb/XcodeGen#usage)**:
 
 ```
 $ xcodegen
