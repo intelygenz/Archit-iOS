@@ -14,6 +14,8 @@ open class AppManager: AppManagerProtocol {
     open func didFinishLaunching(launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 
+        LogManager.configure()
+        
         if let splitViewController = splitViewController,
             let navigationController = splitViewController.viewControllers.last as? BaseNavigationController {
             navigationController.topViewController?.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
