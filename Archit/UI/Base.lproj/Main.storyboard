@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -47,14 +48,15 @@
                                                         <constraint firstAttribute="width" secondItem="dIe-Mg-pVe" secondAttribute="height" multiplier="3:4" id="xiP-06-bQa"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Year" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Axd-Bn-HRE">
-                                                    <rect key="frame" x="73" y="60" width="28.5" height="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Year" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Axd-Bn-HRE">
+                                                    <rect key="frame" x="73" y="60" width="279" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Axd-Bn-HRE" secondAttribute="trailing" constant="8" id="AxG-Gu-CLu"/>
                                                 <constraint firstItem="4py-1c-vJX" firstAttribute="leading" secondItem="dIe-Mg-pVe" secondAttribute="trailing" constant="8" id="BXm-NG-3Lt"/>
                                                 <constraint firstItem="4py-1c-vJX" firstAttribute="centerY" secondItem="dIe-Mg-pVe" secondAttribute="centerY" id="EUC-l8-9qb"/>
                                                 <constraint firstItem="Axd-Bn-HRE" firstAttribute="leading" secondItem="4py-1c-vJX" secondAttribute="leading" id="KPN-9O-dWe"/>
@@ -128,7 +130,7 @@
                                             <constraint firstAttribute="width" secondItem="tgu-db-0Gg" secondAttribute="height" multiplier="1:1" id="g2y-m0-XrA"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SbY-iD-JR5">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SbY-iD-JR5">
                                         <rect key="frame" x="0.0" y="291" width="375" height="21"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                         <nil key="textColor"/>

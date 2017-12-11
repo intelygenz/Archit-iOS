@@ -76,18 +76,9 @@ class FilmsViewController: BaseViewController<FilmsController> {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(for: indexPath)
+        let film = controller.films[indexPath.row]
         if let cell = cell as? FilmCell {
-            let film = controller.films[indexPath.row]
-            cell.titleLabel?.text = film.title
-            cell.yearLabel?.text = film.year
-            cell.posterImageView?.kf.setImage(with: film.poster, completionHandler: { (image, error, cache, url) in
-                if image != nil {
-                    cell.layoutSubviews()
-                }
-            })
-        }
-        else {
-            assertionFailure()
+            cell.inflate(imageUrl: film.poster, titleText: film.title, year: film.year)
         }
         return cell
     }
