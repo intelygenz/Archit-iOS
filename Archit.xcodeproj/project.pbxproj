@@ -28,6 +28,7 @@
 		817ED3511FBDE6D90066A679 /* LogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817ED3501FBDE6D90066A679 /* LogManager.swift */; };
 		817ED3541FBDE7BE0066A679 /* LogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817ED3501FBDE6D90066A679 /* LogManager.swift */; };
 		817ED3551FBDE7C00066A679 /* LogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817ED3501FBDE6D90066A679 /* LogManager.swift */; };
+		829582401FDEC1F900DFD9BA /* FilmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8295823F1FDEC1F900DFD9BA /* FilmCell.swift */; };
 		8374FD19ACE27BF2EEF1BADF /* Pods_Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5070463760B7BEFCBFA8995E /* Pods_Domain.framework */; };
 		9AC00EF4802746D651A3FFE3 /* Pods_CoreTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B55B0227AAC528CF431AFE3 /* Pods_CoreTests.framework */; };
 		A4D041333F586D156E01B44E /* Pods_Archit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51036FE5FB812710D2B3A0F7 /* Pods_Archit.framework */; };
@@ -197,6 +198,7 @@
 		810964021FB0C42E00B35959 /* ArchitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchitUITests.swift; sourceTree = "<group>"; };
 		810964041FB0C42E00B35959 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		817ED3501FBDE6D90066A679 /* LogManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LogManager.swift; path = Source/Managers/LogManager.swift; sourceTree = "<group>"; };
+		8295823F1FDEC1F900DFD9BA /* FilmCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmCell.swift; sourceTree = "<group>"; };
 		9E13B6F1A1B652AB4AD62B18 /* Pods-Domain.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Domain.release.xcconfig"; path = "Pods/Target Support Files/Pods-Domain/Pods-Domain.release.xcconfig"; sourceTree = "<group>"; };
 		A73079477914B6D127E59CB7 /* Pods_DomainTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DomainTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE55A12BF45485A5033F2DAC /* Pods_ArchitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArchitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -537,6 +539,7 @@
 				D582F43D1FB23A8D002BDB91 /* FilmsInteractor.swift */,
 				D582F4301FB2273A002BDB91 /* FilmsController.swift */,
 				D582F42F1FB2273A002BDB91 /* FilmsViewController.swift */,
+				8295823F1FDEC1F900DFD9BA /* FilmCell.swift */,
 			);
 			name = Films;
 			path = Source/Films;
@@ -1371,6 +1374,7 @@
 				810963DC1FB0C42E00B35959 /* AppManager.swift in Sources */,
 				D582F4341FB22761002BDB91 /* UITableView+Reusable.swift in Sources */,
 				D582F4381FB22822002BDB91 /* FilmDetailController.swift in Sources */,
+				829582401FDEC1F900DFD9BA /* FilmCell.swift in Sources */,
 				D58D1AA21FB2172000721663 /* BaseNavigationController.swift in Sources */,
 				D58D1AA31FB2172000721663 /* BaseController.swift in Sources */,
 				D582F43C1FB239C4002BDB91 /* BaseInteractor.swift in Sources */,

@@ -76,14 +76,19 @@ class FilmsViewController: BaseViewController<FilmsController> {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(for: indexPath)
-        let film = controller.films[indexPath.row]
-        cell.textLabel?.text = film.title
-        cell.detailTextLabel?.text = film.year
-        cell.imageView?.kf.setImage(with: film.poster, completionHandler: { (image, error, cache, url) in
-            if image != nil {
-                cell.layoutSubviews()
-            }
-        })
+        if let cell = cell as? FilmCell {
+            let film = controller.films[indexPath.row]
+            cell.titleLabel?.text = film.title
+            cell.yearLabel?.text = film.year
+            cell.posterImageView?.kf.setImage(with: film.poster, completionHandler: { (image, error, cache, url) in
+                if image != nil {
+                    cell.layoutSubviews()
+                }
+            })
+        }
+        else {
+            assertionFailure()
+        }
         return cell
     }
 
@@ -106,6 +111,10 @@ class FilmsViewController: BaseViewController<FilmsController> {
             let scope = searchBar.scopeButtonTitles?[searchBar.selectedScopeButtonIndex].lowercased() ?? "all"
             controller.search(query, type: scope)
         }
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 128.0
     }
 
 }
