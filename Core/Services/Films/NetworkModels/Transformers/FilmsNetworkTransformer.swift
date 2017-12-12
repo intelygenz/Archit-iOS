@@ -34,7 +34,11 @@ class FilmsNetworkTransformer: NetworkServiceTransformer<FilmNetworkModel, Film>
         if let website = source.website, website != "N/A" {
             websiteURL = URL(string: website)
         }
-        return Film(imdbID: source.imdbID, title: source.title, year: source.year, type: source.type, ratings: ratings, poster: URL(string: source.poster), rated: source.rated, released: releasedDate, runtime: runtimeInterval, genre: source.genre, director: source.director, writer: source.writer, actors: source.actors, plot: source.plot, language: source.language, country: source.country, awards: source.awards, metascore: source.metascore, imdbRating: source.imdbRating, imdbVotes: source.imdbVotes, dvd: dvdDate, boxOffice: source.boxOffice, production: source.production, website: websiteURL)
+        var posterURL: URL?
+        if source.poster != "N/A" {
+            posterURL = URL(string: source.poster)
+        }
+        return Film(imdbID: source.imdbID, title: source.title, year: source.year, type: source.type, ratings: ratings, poster: posterURL, rated: source.rated, released: releasedDate, runtime: runtimeInterval, genre: source.genre, director: source.director, writer: source.writer, actors: source.actors, plot: source.plot, language: source.language, country: source.country, awards: source.awards, metascore: source.metascore, imdbRating: source.imdbRating, imdbVotes: source.imdbVotes, dvd: dvdDate, boxOffice: source.boxOffice, production: source.production, website: websiteURL)
     }
 
 }
