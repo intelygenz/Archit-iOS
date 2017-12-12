@@ -78,7 +78,7 @@ class FilmsViewController: BaseViewController<FilmsController> {
         let cell = tableView.dequeueReusableCell(for: indexPath)
         let film = controller.films[indexPath.row]
         if let cell = cell as? FilmCell {
-            cell.inflate(imageUrl: film.poster, titleText: film.title, year: film.year)
+            cell.configure(imageUrl: film.poster, titleText: film.title, year: film.year)
         }
         return cell
     }
