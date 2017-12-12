@@ -12,7 +12,7 @@ class FilmCell: UITableViewCell {
 
     public func configure(imageUrl: URL?, titleText: String?, year: String?) {
         self.posterImageView?.kf.setImage(with: imageUrl, completionHandler: { (image, error, cache, url) in
-            if image != nil {
+            if image != nil, error == nil {
                 self.layoutSubviews()
             }
         })
