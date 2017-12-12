@@ -1,10 +1,6 @@
-//
 //  FilmCell.swift
-//  Archit
-//
 //  Created by Diego Manuel Molina Canedo on 11/12/17.
 //  Copyright © 2017 Intelygenz. All rights reserved.
-//
 
 import UIKit
 
