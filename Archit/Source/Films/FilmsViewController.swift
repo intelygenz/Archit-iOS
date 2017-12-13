@@ -24,7 +24,6 @@ class FilmsViewController: BaseViewController<FilmsController> {
     }
 
     private func configView() {
-        tableView.estimatedRowHeight = UITableViewAutomaticDimension
         tableView.tableFooterView = UIView()
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: .valueChanged)
@@ -102,10 +101,6 @@ class FilmsViewController: BaseViewController<FilmsController> {
             let scope = searchBar.scopeButtonTitles?[searchBar.selectedScopeButtonIndex].lowercased() ?? "all"
             controller.search(query, type: scope)
         }
-    }
-
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 128.0
     }
 
 }
