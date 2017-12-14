@@ -74,11 +74,9 @@ class FilmsViewController: BaseViewController<FilmsController> {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(for: indexPath)
+        let cell: FilmCell = tableView.dequeueReusableCell(for: indexPath)
         let film = controller.films[indexPath.row]
-        if let cell = cell as? FilmCell {
-            cell.configure(imageUrl: film.poster, titleText: film.title, year: film.year)
-        }
+        cell.configure(imageUrl: film.poster, title: film.title, year: film.year)
         return cell
     }
 

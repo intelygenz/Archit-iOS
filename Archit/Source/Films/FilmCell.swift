@@ -10,13 +10,13 @@ class FilmCell: UITableViewCell {
     @IBOutlet weak private var titleLabel: UILabel!
     @IBOutlet weak private var yearLabel: UILabel!
 
-    public func configure(imageUrl: URL?, titleText: String?, year: String?) {
+    public func configure(imageUrl: URL?, title: String?, year: String?) {
         self.posterImageView?.kf.setImage(with: imageUrl, completionHandler: { (image, error, cache, url) in
             if image != nil, error == nil {
                 self.layoutSubviews()
             }
         })
-        self.titleLabel.text = titleText
+        self.titleLabel.text = title
         self.yearLabel.text = year
     }
 
