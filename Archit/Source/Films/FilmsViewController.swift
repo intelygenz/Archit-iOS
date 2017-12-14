@@ -24,7 +24,6 @@ class FilmsViewController: BaseViewController<FilmsController> {
     }
 
     private func configView() {
-        tableView.estimatedRowHeight = UITableViewAutomaticDimension
         tableView.tableFooterView = UIView()
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: .valueChanged)
@@ -75,15 +74,9 @@ class FilmsViewController: BaseViewController<FilmsController> {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(for: indexPath)
+        let cell: FilmCell = tableView.dequeueReusableCell(for: indexPath)
         let film = controller.films[indexPath.row]
-        cell.textLabel?.text = film.title
-        cell.detailTextLabel?.text = film.year
-        cell.imageView?.kf.setImage(with: film.poster, completionHandler: { (image, error, cache, url) in
-            if image != nil {
-                cell.layoutSubviews()
-            }
-        })
+        cell.configure(imageUrl: film.poster, title: film.title, year: film.year)
         return cell
     }
 
