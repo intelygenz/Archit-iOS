@@ -33,5 +33,14 @@ public class ServiceTask {
     @discardableResult public func execute<D: Decodable>() -> Single<D> {
         assert(requestBuilder != nil, "You must define your requestBuilder in your subclass.")
         return ServiceTask.net.data(requestBuilder.build()).rx.response().decode()
+            .catchError { error in
+                switch error {
+                case NetError.parse:
+                    throw ServiceTaskError.parserError(message: "Parser error.", underlying: error)
+                default:
+                    throw ServiceTaskError.netError(message: "Network error.", underlying: error)
+                }
+
+            }
     }
 }

@@ -9,7 +9,7 @@ import RxSwift
 protocol FilmsControllerProtocol: BaseController {
     var films: Variable<[Film]> { get }
     var query: Variable<String> { get }
-    var error: Variable<Error?> { get }
+    var error: Variable<FilmsInteractorError?> { get }
     var type: String { get }
     var page: Int { get }
     func search(_ query: String, type: String, page: Int)
@@ -21,7 +21,7 @@ class FilmsController: FilmsControllerProtocol {
 
     private(set) var films = Variable<[Film]>([])
     private(set) var query = Variable("Star Wars")
-    private(set) var error = Variable<Error?>(nil)
+    private(set) var error = Variable<FilmsInteractorError?>(nil)
     private(set) var type: String = "all"
     private(set) var page: Int = 1
     private var total: Int?
@@ -49,8 +49,8 @@ class FilmsController: FilmsControllerProtocol {
                     self.films.value.append(contentsOf: $0.films)
                 }
                 self.error.value = nil
-            }, onError: {
-                self.error.value = $0
+            }, onError: { error in
+                self.error.value = error as? FilmsInteractorError
             }).disposed(by: disposeBag)
     }
 

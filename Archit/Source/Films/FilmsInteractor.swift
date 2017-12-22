@@ -39,10 +39,16 @@ class FilmsInteractor: BaseInteractor, FilmsInteractorProtocol {
 
     func film(_ imdbID: String, type: FilmsInteractorSearchType?) -> Single<Film> {
         return filmsService.searchFilm(imdbID, type: type?.rawValue).observeOn(MainScheduler.instance)
+            .catchError { error in
+                throw FilmsInteractorError.filmsError(message: "Error requesting film.", underlying: error)
+            }
     }
 
     func films(_ query: String, type: FilmsInteractorSearchType?, page: Int) -> Single<(films: [Film], total: Int)> {
         return filmsService.searchFilms(query, type: type?.rawValue, page: page).observeOn(MainScheduler.instance)
+            .catchError { error in
+                throw FilmsInteractorError.filmsError(message: "Error requesting films.", underlying: error)
+            }
     }
 
 }

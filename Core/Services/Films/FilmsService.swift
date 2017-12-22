@@ -19,8 +19,10 @@ public class FilmsService: FilmsServiceProtocol {
 
     public func searchFilm(_ imdbID: String, type: String?) -> Single<Film> {
         let searchFilmServiceTask = SearchFilmServiceTask(imdbID, type: type)
-        let film: Single<FilmNetworkModel> = searchFilmServiceTask.execute()
-        return film.flatMap { Single.just( try self.transformer.transform(source: $0)) }
+        let filmObservable: Single<FilmNetworkModel> = searchFilmServiceTask.execute()
+        return filmObservable.map { film in
+            try self.transformer.transform(source: film)
+        }
     }
 
     public func searchFilms(_ query: String, type: String?, page: Int) -> Single<(films: [Film], total: Int)> {
@@ -28,8 +30,14 @@ public class FilmsService: FilmsServiceProtocol {
             return Single.error(ServiceTaskError.netError(message: "Service task pagination error.", underlying: nil))
         }
         let searchFilmsServiceTask = SearchFilmsServiceTask(query, type: type, page: page)
-        let search: Single<FilmSearchNetworkModel> = searchFilmsServiceTask.execute()
-        return search.flatMap { Single.just(( try self.transformer.transform(source: $0.results ?? []), Int($0.total ?? "") ?? 0)) }
+        let searchObservable: Single<FilmSearchNetworkModel> = searchFilmsServiceTask.execute()
+        return searchObservable.map { search in
+            guard let results = search.results, let total = search.total, let totalInt = Int(total) else {
+                throw ServiceTaskError.parserError(message: search.error ?? "No results.", underlying: nil)
+            }
+            let films = try self.transformer.transform(source: results)
+            return (films, totalInt)
+        }
     }
 
 }
