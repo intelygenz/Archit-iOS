@@ -82,6 +82,7 @@ public class NetReachability {
 
     deinit {
         stop()
+        listener = nil
     }
 
     @discardableResult public func start() -> Bool {

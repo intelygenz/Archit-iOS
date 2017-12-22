@@ -39,23 +39,23 @@ class NetTransformer {
         throw NetError.parse(code: underlying?._code, message: "The data couldn’t be transformed into \(T.self).", object: object, underlying: underlying)
     }
 
-    static func decode<T: Decodable>(object: Any?) throws -> T {
+    static func decode<D: Decodable>(object: Any?) throws -> D {
         var underlying: Error?
         if let data = object as? Data {
             do {
-                return try JSONDecoder().decode(T.self, from: data)
+                return try JSONDecoder().decode(D.self, from: data)
             } catch {
                 underlying = error
             }
             do {
-                return try PropertyListDecoder().decode(T.self, from: data)
+                return try PropertyListDecoder().decode(D.self, from: data)
             } catch {
                 if underlying == nil {
                     underlying = error
                 }
             }
         }
-        throw NetError.parse(code: underlying?._code, message: "The data couldn’t be transformed into \(T.self).", object: object, underlying: underlying)
+        throw NetError.parse(code: underlying?._code, message: "The data couldn’t be transformed into \(D.self).", object: object, underlying: underlying)
     }
 
 }

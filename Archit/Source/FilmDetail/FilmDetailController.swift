@@ -4,50 +4,40 @@
 
 import Foundation
 import Domain
-import Kommander
+import RxSwift
 
 protocol FilmDetailControllerProtocol: BaseController {
-    var film: Film? { get }
+    var film: Variable<Film?> { get }
+    var error: Variable<Error?> { get }
 }
 
 class FilmDetailController: FilmDetailControllerProtocol {
-    weak var viewController: FilmDetailViewController?
-    var film: Film? {
-        didSet {
-            viewController?.reloadData()
-        }
-    }
     private let filmsInteractor: FilmsInteractorProtocol = FilmsInteractor()
-    private weak var filmSearchKommand: Kommand<Film>?
 
-    convenience init(_ viewController: FilmDetailViewController, film: Film) {
-        self.init(viewController)
-        self.film = film
-    }
-
-    required init(_ viewController: FilmDetailViewController) {
-        self.viewController = viewController
-    }
+    let film = Variable<Film?>(nil)
+    let error = Variable<Error?>(nil)
+    private var disposeBag = DisposeBag()
 
     func willAppear(_ animated: Bool) {
         refresh()
     }
 
     func willDisappear(_ animated: Bool) {
-        filmSearchKommand?.cancel()
+        self.disposeBag = DisposeBag()
     }
 
     func refresh() {
-        guard let imdbID = film?.imdbID, let type = film?.type else {
+        guard let film = film.value else {
             return
         }
-        filmSearchKommand = filmsInteractor.film(imdbID, type: FilmsInteractorSearchType(rawValue: type), onSuccess: { film in
-            self.film = film
+
+        let type = FilmsInteractorSearchType(rawValue: film.type)
+        filmsInteractor.film(film.imdbID, type: type).subscribe(onSuccess: { film in
+            self.film.value = film
+            self.error.value = nil
         }, onError: { error in
-            self.viewController?.showAlert(error.localizedDescription, completion: {
-                self.viewController?.reloadData()
-            })
-        }).execute()
+            self.error.value = error
+        }).disposed(by: disposeBag)
     }
 
 }

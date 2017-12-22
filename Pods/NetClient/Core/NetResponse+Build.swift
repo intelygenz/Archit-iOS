@@ -10,29 +10,29 @@ import Foundation
 
 extension NetResponse {
 
-    open class Builder {
+    public class Builder {
 
-        open private(set) var url: URL?
+        public private(set) var url: URL?
 
-        open private(set) var mimeType: String?
+        public private(set) var mimeType: String?
 
-        open private(set) var contentLength: Int64
+        public private(set) var contentLength: Int64
 
-        open private(set) var textEncoding: String?
+        public private(set) var textEncoding: String?
 
-        open private(set) var filename: String?
+        public private(set) var filename: String?
 
-        open private(set) var statusCode: Int?
+        public private(set) var statusCode: Int?
 
-        open private(set) var headers: [AnyHashable : Any]?
+        public private(set) var headers: [AnyHashable : Any]?
 
-        open private(set) var localizedDescription: String?
+        public private(set) var localizedDescription: String?
 
-        open private(set) var userInfo: [AnyHashable : Any]?
+        public private(set) var userInfo: [AnyHashable : Any]?
 
-        open private(set) weak var netTask: NetTask?
+        public private(set) weak var netTask: NetTask?
         
-        open private(set) var responseObject: Any?
+        public private(set) var responseObject: Any?
 
         public init(_ netResponse: NetResponse? = nil) {
             url = netResponse?.url
@@ -109,16 +109,16 @@ extension NetResponse {
 
     }
 
+    public func builder() -> Builder {
+        return NetResponse.builder(self)
+    }
+
     public static func builder(_ netResponse: NetResponse? = nil) -> Builder {
         return Builder(netResponse)
     }
 
     public init(_ builder: Builder) {
         self.init(builder.url, mimeType: builder.mimeType, contentLength: builder.contentLength, textEncoding: builder.textEncoding, filename: builder.filename, statusCode: builder.statusCode, headers: builder.headers, localizedDescription: builder.localizedDescription, userInfo: builder.userInfo, netTask: builder.netTask, responseObject: builder.responseObject)
-    }
-
-    public func builder() -> Builder {
-        return NetResponse.builder(self)
     }
 
 }

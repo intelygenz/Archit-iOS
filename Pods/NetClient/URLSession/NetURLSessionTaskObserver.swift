@@ -70,7 +70,7 @@ class NetURLSessionTaskObserver: NSObject {
                     tasks[task] = nil
                     return
                 }
-            } else if #available(iOS 9.0, OSX 10.11, *), taskProgress?.isPaused == true {
+            } else if #available(iOS 9.0, macOS 10.11, *), taskProgress?.isPaused == true {
                 taskProgress?.resume()
             }
         }
@@ -110,7 +110,7 @@ extension NetURLSessionTaskObserver {
                 task?.cancel()
             }
         }
-        if #available(iOS 9.0, OSX 10.11, *) {
+        if #available(iOS 9.0, macOS 10.11, *) {
             taskProgress.resumingHandler = { [weak task] in
                 if task?.state != .running {
                     task?.resume()

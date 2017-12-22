@@ -5,7 +5,7 @@
 import Foundation
 import Domain
 
-class FilmsNetworkTransformer: NetworkServiceTransformer<FilmNetworkModel, Film> {
+class FilmsNetworkTransformer: Transformer {
 
     private static let dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
@@ -13,7 +13,7 @@ class FilmsNetworkTransformer: NetworkServiceTransformer<FilmNetworkModel, Film>
         return dateFormatter
     }()
 
-    override func transform(source: FilmNetworkModel) -> Film? {
+    func transform(source: FilmNetworkModel) throws -> Film {
         var ratings = [String: String]()
         source.ratings?.forEach({ rating in
             ratings[rating.source] = rating.value

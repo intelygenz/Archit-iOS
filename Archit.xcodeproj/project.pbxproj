@@ -28,6 +28,7 @@
 		817ED3511FBDE6D90066A679 /* LogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817ED3501FBDE6D90066A679 /* LogManager.swift */; };
 		817ED3541FBDE7BE0066A679 /* LogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817ED3501FBDE6D90066A679 /* LogManager.swift */; };
 		817ED3551FBDE7C00066A679 /* LogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817ED3501FBDE6D90066A679 /* LogManager.swift */; };
+		81E11B081FEBF55D005F7DE4 /* ServiceTaskError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E11B071FEBF55D005F7DE4 /* ServiceTaskError.swift */; };
 		829582401FDEC1F900DFD9BA /* FilmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8295823F1FDEC1F900DFD9BA /* FilmCell.swift */; };
 		8374FD19ACE27BF2EEF1BADF /* Pods_Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5070463760B7BEFCBFA8995E /* Pods_Domain.framework */; };
 		9AC00EF4802746D651A3FFE3 /* Pods_CoreTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B55B0227AAC528CF431AFE3 /* Pods_CoreTests.framework */; };
@@ -44,12 +45,6 @@
 		D582F4391FB22822002BDB91 /* FilmDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D582F4371FB22821002BDB91 /* FilmDetailViewController.swift */; };
 		D582F43C1FB239C4002BDB91 /* BaseInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D582F43B1FB239C4002BDB91 /* BaseInteractor.swift */; };
 		D582F43E1FB23A8D002BDB91 /* FilmsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D582F43D1FB23A8D002BDB91 /* FilmsInteractor.swift */; };
-		D582F4481FB38CF1002BDB91 /* NetworkServiceTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D582F43F1FB38CF1002BDB91 /* NetworkServiceTransformer.swift */; };
-		D582F4491FB38CF1002BDB91 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D582F4401FB38CF1002BDB91 /* NetworkService.swift */; };
-		D582F44A1FB38CF1002BDB91 /* NetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D582F4411FB38CF1002BDB91 /* NetworkServiceProtocol.swift */; };
-		D582F44B1FB38CF1002BDB91 /* ServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D582F4421FB38CF1002BDB91 /* ServiceProtocol.swift */; };
-		D582F44C1FB38CF1002BDB91 /* TaskProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D582F4441FB38CF1002BDB91 /* TaskProtocol.swift */; };
-		D582F44D1FB38CF1002BDB91 /* ServiceTaskProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D582F4451FB38CF1002BDB91 /* ServiceTaskProtocol.swift */; };
 		D582F44E1FB38CF1002BDB91 /* ServiceTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = D582F4461FB38CF1002BDB91 /* ServiceTask.swift */; };
 		D582F44F1FB38CF1002BDB91 /* Transformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D582F4471FB38CF1002BDB91 /* Transformer.swift */; };
 		D582F4561FB61B5B002BDB91 /* FilmsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D582F4551FB61B5B002BDB91 /* FilmsService.swift */; };
@@ -198,6 +193,7 @@
 		810964021FB0C42E00B35959 /* ArchitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchitUITests.swift; sourceTree = "<group>"; };
 		810964041FB0C42E00B35959 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		817ED3501FBDE6D90066A679 /* LogManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LogManager.swift; path = Source/Managers/LogManager.swift; sourceTree = "<group>"; };
+		81E11B071FEBF55D005F7DE4 /* ServiceTaskError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceTaskError.swift; sourceTree = "<group>"; };
 		8295823F1FDEC1F900DFD9BA /* FilmCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmCell.swift; sourceTree = "<group>"; };
 		9E13B6F1A1B652AB4AD62B18 /* Pods-Domain.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Domain.release.xcconfig"; path = "Pods/Target Support Files/Pods-Domain/Pods-Domain.release.xcconfig"; sourceTree = "<group>"; };
 		A73079477914B6D127E59CB7 /* Pods_DomainTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DomainTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -214,12 +210,6 @@
 		D582F4371FB22821002BDB91 /* FilmDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilmDetailViewController.swift; sourceTree = "<group>"; };
 		D582F43B1FB239C4002BDB91 /* BaseInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseInteractor.swift; sourceTree = "<group>"; };
 		D582F43D1FB23A8D002BDB91 /* FilmsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilmsInteractor.swift; sourceTree = "<group>"; };
-		D582F43F1FB38CF1002BDB91 /* NetworkServiceTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkServiceTransformer.swift; sourceTree = "<group>"; };
-		D582F4401FB38CF1002BDB91 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
-		D582F4411FB38CF1002BDB91 /* NetworkServiceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkServiceProtocol.swift; sourceTree = "<group>"; };
-		D582F4421FB38CF1002BDB91 /* ServiceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceProtocol.swift; sourceTree = "<group>"; };
-		D582F4441FB38CF1002BDB91 /* TaskProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskProtocol.swift; sourceTree = "<group>"; };
-		D582F4451FB38CF1002BDB91 /* ServiceTaskProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceTaskProtocol.swift; sourceTree = "<group>"; };
 		D582F4461FB38CF1002BDB91 /* ServiceTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceTask.swift; sourceTree = "<group>"; };
 		D582F4471FB38CF1002BDB91 /* Transformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transformer.swift; sourceTree = "<group>"; };
 		D582F4551FB61B5B002BDB91 /* FilmsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmsService.swift; sourceTree = "<group>"; };
@@ -340,11 +330,9 @@
 			isa = PBXGroup;
 			children = (
 				D582F4501FB61AA7002BDB91 /* Services */,
-				D582F4431FB38CF1002BDB91 /* Tasks */,
-				D582F4401FB38CF1002BDB91 /* NetworkService.swift */,
-				D582F4411FB38CF1002BDB91 /* NetworkServiceProtocol.swift */,
-				D582F4421FB38CF1002BDB91 /* ServiceProtocol.swift */,
-				D582F43F1FB38CF1002BDB91 /* NetworkServiceTransformer.swift */,
+				D5FF818D1FB8AFD600EAC050 /* NetworkServiceConstants.swift */,
+				D582F4461FB38CF1002BDB91 /* ServiceTask.swift */,
+				81E11B071FEBF55D005F7DE4 /* ServiceTaskError.swift */,
 				D582F4471FB38CF1002BDB91 /* Transformer.swift */,
 				8108232D1FB0C594009F0C43 /* Core.h */,
 				8108232E1FB0C594009F0C43 /* Info.plist */,
@@ -564,21 +552,10 @@
 			path = Source/Base/Interactors;
 			sourceTree = "<group>";
 		};
-		D582F4431FB38CF1002BDB91 /* Tasks */ = {
-			isa = PBXGroup;
-			children = (
-				D582F4441FB38CF1002BDB91 /* TaskProtocol.swift */,
-				D582F4451FB38CF1002BDB91 /* ServiceTaskProtocol.swift */,
-				D582F4461FB38CF1002BDB91 /* ServiceTask.swift */,
-			);
-			path = Tasks;
-			sourceTree = "<group>";
-		};
 		D582F4501FB61AA7002BDB91 /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				D582F4511FB61AA7002BDB91 /* Films */,
-				D5FF818D1FB8AFD600EAC050 /* NetworkServiceConstants.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -752,7 +729,6 @@
 			buildConfigurationList = 810964071FB0C42E00B35959 /* Build configuration list for PBXNativeTarget "Archit" */;
 			buildPhases = (
 				D54E865DFBE4F5F4CC7E544F /* [CP] Check Pods Manifest.lock */,
-				810963C51FB0C42E00B35959 /* SwiftLint */,
 				810963C11FB0C42E00B35959 /* Sources */,
 				810963C21FB0C42E00B35959 /* Frameworks */,
 				810963C31FB0C42E00B35959 /* Resources */,
@@ -821,7 +797,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0910;
-				LastUpgradeCheck = 0910;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = Intelygenz;
 				TargetAttributes = {
 					8108232A1FB0C594009F0C43 = {
@@ -964,12 +940,14 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-CoreTests/Pods-CoreTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ObjcExceptionBridging/ObjcExceptionBridging.framework",
 				"${BUILT_PRODUCTS_DIR}/XCGLogger/XCGLogger.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/NetClient/Net.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjcExceptionBridging.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XCGLogger.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Net.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1033,6 +1011,8 @@
 				"${BUILT_PRODUCTS_DIR}/Kommander/Kommander.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjcExceptionBridging/ObjcExceptionBridging.framework",
 				"${BUILT_PRODUCTS_DIR}/Reusable/Reusable.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/XCGLogger/XCGLogger.framework",
 				"${BUILT_PRODUCTS_DIR}/NetClient/Net.framework",
 			);
@@ -1042,6 +1022,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kommander.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjcExceptionBridging.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reusable.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XCGLogger.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Net.framework",
 			);
@@ -1152,20 +1134,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Scripts/highlight_TODOs.sh\"";
-		};
-		810963C51FB0C42E00B35959 /* SwiftLint */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = SwiftLint;
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"";
 		};
 		89B60B53987246746319F05E /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1319,20 +1287,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				817ED3541FBDE7BE0066A679 /* LogManager.swift in Sources */,
+				81E11B081FEBF55D005F7DE4 /* ServiceTaskError.swift in Sources */,
 				D5FF818E1FB8AFD600EAC050 /* NetworkServiceConstants.swift in Sources */,
 				D582F4581FB61C56002BDB91 /* FilmsNetworkTransformer.swift in Sources */,
-				D582F4491FB38CF1002BDB91 /* NetworkService.swift in Sources */,
-				D582F4481FB38CF1002BDB91 /* NetworkServiceTransformer.swift in Sources */,
 				D582F4561FB61B5B002BDB91 /* FilmsService.swift in Sources */,
 				D582F45C1FB61D91002BDB91 /* FilmNetworkModel.swift in Sources */,
 				D5283FAB1FB71A0E008DCA34 /* SearchFilmServiceTask.swift in Sources */,
 				D582F44E1FB38CF1002BDB91 /* ServiceTask.swift in Sources */,
-				D582F44D1FB38CF1002BDB91 /* ServiceTaskProtocol.swift in Sources */,
 				D582F45A1FB61D2F002BDB91 /* SearchFilmsServiceTask.swift in Sources */,
 				D582F45E1FB620D5002BDB91 /* FilmRatingNetworkModel.swift in Sources */,
-				D582F44A1FB38CF1002BDB91 /* NetworkServiceProtocol.swift in Sources */,
-				D582F44B1FB38CF1002BDB91 /* ServiceProtocol.swift in Sources */,
-				D582F44C1FB38CF1002BDB91 /* TaskProtocol.swift in Sources */,
 				D5283FA51FB637F7008DCA34 /* FilmSearchNetworkModel.swift in Sources */,
 				D582F44F1FB38CF1002BDB91 /* Transformer.swift in Sources */,
 			);
@@ -1482,7 +1445,7 @@
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -1518,7 +1481,7 @@
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -1601,7 +1564,7 @@
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -1637,7 +1600,7 @@
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;

@@ -4,50 +4,32 @@
 
 import Foundation
 import Domain
+import RxSwift
 
-public protocol FilmsServiceProtocol: NetworkServiceProtocol {
-    func searchFilm(_ imdbID: String, type: String?) throws -> Film
-    func searchFilms(_ query: String, type: String?, page: Int) throws -> (films: [Film], total: Int)
+public protocol FilmsServiceProtocol {
+    func searchFilm(_ imdbID: String, type: String?) -> Single<Film>
+    func searchFilms(_ query: String, type: String?, page: Int) -> Single<(films: [Film], total: Int)>
 }
 
-public class FilmsService: NetworkService, FilmsServiceProtocol {
+public class FilmsService: FilmsServiceProtocol {
 
     private var transformer = FilmsNetworkTransformer()
 
-    public func searchFilm(_ imdbID: String, type: String?) throws -> Film {
+    public init() {}
+
+    public func searchFilm(_ imdbID: String, type: String?) -> Single<Film> {
         let searchFilmServiceTask = SearchFilmServiceTask(imdbID, type: type)
-        do {
-            guard let film = try searchFilmServiceTask.execute() as? FilmNetworkModel else {
-                throw ServiceTaskError.parserError(message: "Service task parsing error.", underlying: nil)
-            }
-            guard let result = transformer.transform(source: film) else {
-                throw ServiceTaskError.parserError(message: "Not found.", underlying: nil)
-            }
-            return result
-        } catch {
-            guard let serviceTaskError = error as? ServiceTaskError else {
-                throw NetworkServiceError.serviceError(message: "Service error.", underlying: ServiceTaskError.parserError(message: "Service task error.", underlying: nil))
-            }
-            throw NetworkServiceError.serviceError(message: "Can't find films.", underlying: serviceTaskError)
-        }
+        let film: Single<FilmNetworkModel> = searchFilmServiceTask.execute()
+        return film.flatMap { Single.just( try self.transformer.transform(source: $0)) }
     }
 
-    public func searchFilms(_ query: String, type: String?, page: Int) throws -> (films: [Film], total: Int) {
-        let searchFilmsServiceTask = SearchFilmsServiceTask(query, type: type, page: page)
-        do {
-            guard let search = try searchFilmsServiceTask.execute() as? FilmSearchNetworkModel else {
-                throw ServiceTaskError.parserError(message: "Service task parsing error.", underlying: nil)
-            }
-            guard let results = search.results, let total = search.total, let totalInt = Int(total) else {
-                throw ServiceTaskError.parserError(message: search.error ?? "No results.", underlying: nil)
-            }
-            return (transformer.transform(source: results), totalInt)
-        } catch {
-            guard let serviceTaskError = error as? ServiceTaskError else {
-                throw NetworkServiceError.serviceError(message: "Service error.", underlying: ServiceTaskError.parserError(message: "Service task error.", underlying: nil))
-            }
-            throw NetworkServiceError.serviceError(message: "Can't find films.", underlying: serviceTaskError)
+    public func searchFilms(_ query: String, type: String?, page: Int) -> Single<(films: [Film], total: Int)> {
+        guard NetworkServiceConstants.Values.Search.PageRange.contains(page) else {
+            return Single.error(ServiceTaskError.netError(message: "Service task pagination error.", underlying: nil))
         }
+        let searchFilmsServiceTask = SearchFilmsServiceTask(query, type: type, page: page)
+        let search: Single<FilmSearchNetworkModel> = searchFilmsServiceTask.execute()
+        return search.flatMap { Single.just(( try self.transformer.transform(source: $0.results ?? []), Int($0.total ?? "") ?? 0)) }
     }
 
 }

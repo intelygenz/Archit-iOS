@@ -10,6 +10,7 @@ target 'Archit' do
 pod 'Reusable'
 pod 'Kingfisher'
 pod 'Kommander'
+pod 'RxCocoa'
 
 end
 
@@ -25,7 +26,8 @@ end
 
 target 'Core' do
 
-pod 'NetClient'
+pod 'NetClient/RxSwift'
+pod 'RxSwift'
 
 end
 

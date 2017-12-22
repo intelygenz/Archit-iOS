@@ -12,8 +12,11 @@ public typealias NetTaskIdentifier = Int
 
 public protocol NetTaskProtocol: class {
 
-    @available(iOS 11.0, tvOS 11.0, watchOS 4.0, OSX 10.13, *)
+    @available(iOS 11.0, tvOS 11.0, watchOS 4.0, macOS 10.13, *)
     var progress: Progress { get }
+
+    @available(iOS 11.0, tvOS 11.0, watchOS 4.0, macOS 10.13, *)
+    var earliestBeginDate: Date? { get set }
 
     func cancel()
 
@@ -26,7 +29,7 @@ public protocol NetTaskProtocol: class {
 open class NetTask {
 
     public enum NetState : Int {
-        case running, suspended, canceling, completed
+        case running, suspended, canceling, completed, waitingForConnectivity
     }
 
     open let identifier: NetTaskIdentifier
@@ -77,12 +80,18 @@ open class NetTask {
         self.priority = priority
         if let progress = progress {
             self.progress = progress
-        } else if #available(iOS 11.0, tvOS 11.0, watchOS 4.0, OSX 10.13, *), let progress = task?.progress {
+        } else if #available(iOS 11.0, tvOS 11.0, watchOS 4.0, macOS 10.13, *), let progress = task?.progress {
             self.progress = progress
         } else {
             self.progress = Progress(totalUnitCount: Int64(request?.contentLength ?? 0))
         }
         self.netTask = task
+    }
+
+    deinit {
+        completionClosure = nil
+        progressClosure = nil
+        retryClosure = nil
     }
 
 }
@@ -164,6 +173,20 @@ extension NetTask {
 }
 
 extension NetTask: NetTaskProtocol {
+
+    open var earliestBeginDate: Date? {
+        get {
+            guard #available(iOS 11.0, tvOS 11.0, watchOS 4.0, macOS 10.13, *) else {
+                return nil
+            }
+            return netTask?.earliestBeginDate
+        }
+        set {
+            if #available(iOS 11.0, tvOS 11.0, watchOS 4.0, macOS 10.13, *) {
+                netTask?.earliestBeginDate = newValue
+            }
+        }
+    }
 
     open func cancel() {
         state = .canceling

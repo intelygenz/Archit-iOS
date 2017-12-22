@@ -6,12 +6,6 @@ import Foundation
 
 protocol BaseController {
 
-    associatedtype ViewControllerClass: AnyObject
-
-    weak var viewController: ViewControllerClass? { get }
-
-    init(_ viewController: ViewControllerClass)
-
     func load()
 
     func unload()

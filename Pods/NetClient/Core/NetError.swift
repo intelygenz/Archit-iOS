@@ -24,7 +24,7 @@ extension NetError {
         }
     }
 
-    public func decode<T: Decodable>() throws -> T {
+    public func decode<D: Decodable>() throws -> D {
         switch self {
         case .net(let code, _, _, let object, let underlying):
             return try decodeTransformation(code, object, underlying)
@@ -41,7 +41,7 @@ extension NetError {
         }
     }
 
-    private func decodeTransformation<T: Decodable>(_ code: Int? = nil, _ object: Any? = nil, _ underlying: Error? = nil) throws -> T {
+    private func decodeTransformation<D: Decodable>(_ code: Int? = nil, _ object: Any? = nil, _ underlying: Error? = nil) throws -> D {
         do {
             return try NetTransformer.decode(object: object)
         } catch {

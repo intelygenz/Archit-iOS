@@ -10,43 +10,43 @@ import Foundation
 
 extension NetRequest {
 
-    open class Builder {
+    public class Builder {
 
-        open private(set) var url: URL
+        public private(set) var url: URL
 
-        open private(set) var cache: NetRequest.NetCachePolicy?
+        public private(set) var cache: NetRequest.NetCachePolicy?
 
-        open private(set) var timeout: TimeInterval?
+        public private(set) var timeout: TimeInterval?
 
-        open private(set) var mainDocumentURL: URL?
+        public private(set) var mainDocumentURL: URL?
 
-        open private(set) var serviceType: NetRequest.NetServiceType?
+        public private(set) var serviceType: NetRequest.NetServiceType?
 
-        open private(set) var contentType: NetContentType?
+        public private(set) var contentType: NetContentType?
 
-        open private(set) var contentLength: NetContentLength?
+        public private(set) var contentLength: NetContentLength?
 
-        open private(set) var accept: NetContentType?
+        public private(set) var accept: NetContentType?
 
-        open private(set) var acceptEncoding: [NetContentEncoding]?
+        public private(set) var acceptEncoding: [NetContentEncoding]?
 
-        open private(set) var cacheControl: [NetCacheControl]?
+        public private(set) var cacheControl: [NetCacheControl]?
 
-        open private(set) var allowsCellularAccess: Bool?
+        public private(set) var allowsCellularAccess: Bool?
 
-        open private(set) var method: NetRequest.NetMethod?
+        public private(set) var method: NetRequest.NetMethod?
 
-        open private(set) var headers: [String : String]?
+        public private(set) var headers: [String : String]?
 
-        open private(set) var body: Data?
+        public private(set) var body: Data?
 
-        open private(set) var bodyStream: InputStream?
+        public private(set) var bodyStream: InputStream?
 
-        open private(set) var handleCookies: Bool?
+        public private(set) var handleCookies: Bool?
 
-        open private(set) var usePipelining: Bool?
+        public private(set) var usePipelining: Bool?
 
-        open private(set) var authorization: NetAuthorization?
+        public private(set) var authorization: NetAuthorization?
 
         public init(_ netRequest: NetRequest) {
             url = netRequest.url
@@ -387,6 +387,10 @@ extension NetRequest {
 
     }
 
+    public func builder() -> Builder {
+        return NetRequest.builder(self)
+    }
+
     public static func builder(_ netRequest: NetRequest) -> Builder {
         return Builder(netRequest)
     }
@@ -405,10 +409,6 @@ extension NetRequest {
 
     public init(_ builder: Builder) {
         self.init(builder.url, cache: builder.cache ?? .useProtocolCachePolicy, timeout: builder.timeout ?? 60, mainDocumentURL: builder.mainDocumentURL, serviceType: builder.serviceType ?? .default, contentType: builder.contentType, contentLength: builder.contentLength, accept: builder.accept, acceptEncoding: builder.acceptEncoding, cacheControl: builder.cacheControl, allowsCellularAccess: builder.allowsCellularAccess ?? true, method: builder.method ?? .GET, headers: builder.headers, body: builder.body, bodyStream: builder.bodyStream, handleCookies: builder.handleCookies ?? true, usePipelining: builder.usePipelining ?? true, authorization: builder.authorization ?? .none)
-    }
-
-    public func builder() -> Builder {
-        return NetRequest.builder(self)
     }
 
 }

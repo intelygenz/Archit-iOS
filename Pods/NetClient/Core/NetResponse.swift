@@ -62,7 +62,7 @@ extension NetResponse {
         }
     }
 
-    public func decode<T: Decodable>() throws -> T {
+    public func decode<D: Decodable>() throws -> D {
         do {
             return try NetTransformer.decode(object: responseObject)
         } catch {

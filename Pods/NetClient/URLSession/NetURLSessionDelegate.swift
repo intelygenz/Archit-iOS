@@ -38,7 +38,7 @@ extension NetURLSessionDelegate: URLSessionTaskDelegate {
         handle(challenge, tasks[task], completion: completionHandler)
     }
 
-    @available(iOS 10.0, tvOS 10.0, watchOS 3.0, OSX 10.12, *)
+    @available(iOS 10.0, tvOS 10.0, watchOS 3.0, macOS 10.12, *)
     func urlSession(_ session: URLSession, task: URLSessionTask, didFinishCollecting taskMetrics: URLSessionTaskMetrics) {
         if let netTask = tasks[task] {
             netTask.metrics = NetTaskMetrics(taskMetrics, request: netTask.request, response: netTask.response)
@@ -46,9 +46,16 @@ extension NetURLSessionDelegate: URLSessionTaskDelegate {
         tasks[task] = nil
     }
 
-    @available(iOS 11.0, tvOS 11.0, watchOS 4.0, OSX 10.13, *)
+    @available(iOS 11.0, tvOS 11.0, watchOS 4.0, macOS 10.13, *)
     func urlSession(_ session: URLSession, task: URLSessionTask, willBeginDelayedRequest request: URLRequest, completionHandler: @escaping (URLSession.DelayedRequestDisposition, URLRequest?) -> Void) {
         completionHandler(.continueLoading, nil)
+    }
+
+    @available(iOS 11.0, tvOS 11.0, watchOS 4.0, macOS 10.13, *)
+    func urlSession(_ session: URLSession, taskIsWaitingForConnectivity task: URLSessionTask) {
+        if let netTask = tasks[task] {
+            netTask.state = .waitingForConnectivity
+        }
     }
 
 }

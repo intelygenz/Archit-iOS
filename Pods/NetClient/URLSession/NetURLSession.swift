@@ -89,6 +89,7 @@ public class NetURLSession: Net {
     deinit {
         taskObserver = nil
         authChallenge = nil
+        retryClosure = nil
         session.invalidateAndCancel()
         session = nil
     }

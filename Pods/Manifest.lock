@@ -1,12 +1,12 @@
 PODS:
   - Cucumberish (1.3.0)
-  - Kingfisher (4.2.0)
+  - Kingfisher (4.5.0)
   - Kommander (0.9.3)
-  - NetClient (0.3.5):
-    - NetClient/Core (= 0.3.5)
-    - NetClient/URLSession (= 0.3.5)
-  - NetClient/Core (0.3.5)
-  - NetClient/URLSession (0.3.5):
+  - NetClient/Core (0.4.1)
+  - NetClient/RxSwift (0.4.1):
+    - NetClient/URLSession
+    - RxSwift (~> 4.0)
+  - NetClient/URLSession (0.4.1):
     - NetClient/Core
   - ObjcExceptionBridging (1.0.1):
     - ObjcExceptionBridging/ObjcExceptionBridging (= 1.0.1)
@@ -16,31 +16,38 @@ PODS:
     - Reusable/View (= 4.0.0)
   - Reusable/Storyboard (4.0.0)
   - Reusable/View (4.0.0)
+  - RxCocoa (4.0.0):
+    - RxSwift (~> 4.0)
+  - RxSwift (4.0.0)
   - SwiftLint (0.24.0)
-  - XCGLogger (6.0.1):
-    - XCGLogger/Core (= 6.0.1)
-  - XCGLogger/Core (6.0.1):
+  - XCGLogger (6.0.2):
+    - XCGLogger/Core (= 6.0.2)
+  - XCGLogger/Core (6.0.2):
     - ObjcExceptionBridging
 
 DEPENDENCIES:
   - Cucumberish
   - Kingfisher
   - Kommander
-  - NetClient
+  - NetClient/RxSwift
   - Reusable
+  - RxCocoa
+  - RxSwift
   - SwiftLint
   - XCGLogger
 
 SPEC CHECKSUMS:
   Cucumberish: 76f542be7b62b1a01ebc6f968be3e002f9403931
-  Kingfisher: 9ee7e788d8ba07c3f21ce0d43f33cec310a4f781
+  Kingfisher: 26ae0473102b77b575da51960c932431e3745407
   Kommander: 34bf09d910308fbfd584234896e6e25931b752ff
-  NetClient: 99cbb60c94c195666fcf723213deff4213f198a7
+  NetClient: 2820f530024b8125f53c05b522d597a4c202b208
   ObjcExceptionBridging: c30e00eb3700467e695faeea30e26e18bd445001
   Reusable: 98e5fff1e0e2e00872199699b276dde08ee56c07
+  RxCocoa: d62846ca96495d862fa4c59ea7d87e5031d7340e
+  RxSwift: fd680d75283beb5e2559486f3c0ff852f0d35334
   SwiftLint: a014c92b4664e8b13f380f8640a51bb1733778ba
-  XCGLogger: b4ca980580108cfeaf221afe158f5d89c1be22e0
+  XCGLogger: c9601cae9a8912de34a58666ba931ed3d624dd31
 
-PODFILE CHECKSUM: 6e863f7f984be258f0a4db40f1efedf01540a387
+PODFILE CHECKSUM: daf0553e8b2a98c208dd81cbf001b33feb371bdd
 
 COCOAPODS: 1.3.1

@@ -37,6 +37,7 @@
 - [x] [Alamofire](https://github.com/Alamofire/Alamofire) Implementation
 - [x] [Moya](https://github.com/Moya/Moya)Provider Extension
 - [x] [Kommander](https://github.com/intelygenz/Kommander-iOS) Extension
+- [x] [RxSwift](https://github.com/ReactiveX/RxSwift) Extension
 
 ## 📋 Requirements
 
@@ -69,7 +70,7 @@ github "intelygenz/NetClient-iOS"
 
 ```swift
 dependencies: [
-    .Package(url: "https://github.com/intelygenz/NetClient-iOS.git")
+    .package(url: "https://github.com/intelygenz/NetClient-iOS.git")
 ]
 ```
 
@@ -80,20 +81,24 @@ dependencies: [
 ```swift
 import Net
 
-let request = NetRequest.builder("YOUR_URL")!
-            .setAccept(.json)
-            .setCache(.reloadIgnoringLocalCacheData)
-            .setMethod(.PATCH)
-            .setTimeout(20)
-            .setJSONBody(["foo", "bar"])
-            .setContentType(.json)
-            .setServiceType(.background)
-            .setCacheControls([.maxAge(500)])
-            .setURLParameters(["foo": "bar"])
-            .setAcceptEncodings([.gzip, .deflate])
-            .setBasicAuthorization(user: "user", password: "password")
-            .setHeaders(["foo": "bar"])
-            .build()
+do {
+    let request = try NetRequest.builder("YOUR_URL")!
+                .setAccept(.json)
+                .setCache(.reloadIgnoringLocalCacheData)
+                .setMethod(.PATCH)
+                .setTimeout(20)
+                .setJSONBody(["foo", "bar"])
+                .setContentType(.json)
+                .setServiceType(.background)
+                .setCacheControls([.maxAge(500)])
+                .setURLParameters(["foo": "bar"])
+                .setAcceptEncodings([.gzip, .deflate])
+                .setBasicAuthorization(user: "user", password: "password")
+                .setHeaders(["foo": "bar"])
+                .build()
+} catch {
+    print("Request error: \(error)")
+}
 ```
 
 ### Request asynchronously
@@ -101,7 +106,7 @@ let request = NetRequest.builder("YOUR_URL")!
 ```swift
 import Net
 
-let net = NetURLSession.shared
+let net = NetURLSession()
 
 net.data(URL(string: "YOUR_URL")!).async { (response, error) in
     do {
@@ -121,7 +126,7 @@ net.data(URL(string: "YOUR_URL")!).async { (response, error) in
 ```swift
 import Net
 
-let net = NetURLSession.shared
+let net = NetURLSession()
 
 do {
     let object: [AnyHashable: Any] = try net.data("YOUR_URL").sync().object()
@@ -136,7 +141,7 @@ do {
 ```swift
 import Net
 
-let net = NetURLSession.shared
+let net = NetURLSession()
 
 do {
     let object: [AnyHashable: Any] = try net.data("YOUR_URL").cached().object()
@@ -151,7 +156,7 @@ do {
 ```swift
 import Net
 
-let net = NetURLSession.shared
+let net = NetURLSession()
 
 do {
     let task = try net.data("YOUR_URL").progress({ progress in
@@ -167,7 +172,7 @@ do {
 ```swift
 import Net
 
-let net = NetURLSession.shared
+let net = NetURLSession()
 
 net.addRequestInterceptor { request in
     request.addHeader("foo", value: "bar")
@@ -181,7 +186,7 @@ net.addRequestInterceptor { request in
 ```swift
 import Net
 
-let net = NetURLSession.shared
+let net = NetURLSession()
 
 net.retryClosure = { response, _, _ in response?.statusCode == XXX }
 
@@ -202,7 +207,7 @@ do {
 import Net
 
 let request = NetRequest.builder("YOUR_URL")!
-            .setJSONObject(Encodable)
+            .setJSONObject(Encodable())
             .build()
 ```
 
@@ -211,7 +216,7 @@ let request = NetRequest.builder("YOUR_URL")!
 ```swift
 import Net
 
-let net = NetURLSession.shared
+let net = NetURLSession()
 
 do {
     let object: Decodable = try net.data("YOUR_URL").sync().decode()
@@ -232,7 +237,7 @@ pod 'NetClient/Alamofire'
 ```swift
 import Net
 
-let net = NetAlamofire.shared
+let net = NetAlamofire()
 
 ...
 ```
@@ -269,7 +274,7 @@ pod 'NetClient/Kommander'
 import Net
 import Kommander
 
-let net = NetURLSession.shared
+let net = NetURLSession()
 let kommander = Kommander.default
 
 net.data(URL(string: "YOUR_URL")!).execute(by: kommander, onSuccess: { object in
@@ -283,6 +288,20 @@ net.data(URL(string: "YOUR_URL")!).executeDecoding(by: kommander, onSuccess: { o
 }) { error in
     print("Error: \(String(describing: error?.localizedDescription))")
 }
+```
+
+### Love [RxSwift](https://github.com/ReactiveX/RxSwift)?
+
+```ruby
+pod 'NetClient/RxSwift'
+```
+
+```swift
+import Net
+import RxSwift
+
+let request = NetRequest("YOUR_URL")!
+_ = net.data(request).rx.response().observeOn(MainScheduler.instance).subscribe { print($0) }
 ```
 
 ## ❤️ Etc.

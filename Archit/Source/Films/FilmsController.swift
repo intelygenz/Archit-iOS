@@ -4,78 +4,65 @@
 
 import Foundation
 import Domain
-import Kommander
+import RxSwift
 
 protocol FilmsControllerProtocol: BaseController {
-    var films: [Film] { get }
-    var query: String { get }
+    var films: Variable<[Film]> { get }
+    var query: Variable<String> { get }
+    var error: Variable<Error?> { get }
     var type: String { get }
     var page: Int { get }
     func search(_ query: String, type: String, page: Int)
-    func refresh()
     func loadMore()
 }
 
 class FilmsController: FilmsControllerProtocol {
-    weak var viewController: FilmsViewController?
-    private(set) var films = [Film]() {
-        didSet {
-            viewController?.reloadData()
-        }
-    }
     private let filmsInteractor: FilmsInteractorProtocol = FilmsInteractor()
-    private weak var filmsSearchKommand: Kommand<(films: [Film], total: Int)>?
-    private(set) var query = "Star Wars" {
-        didSet {
-            viewController?.title = query
-        }
-    }
+
+    private(set) var films = Variable<[Film]>([])
+    private(set) var query = Variable("Star Wars")
+    private(set) var error = Variable<Error?>(nil)
     private(set) var type: String = "all"
     private(set) var page: Int = 1
     private var total: Int?
 
-    required init(_ viewController: FilmsViewController) {
-        self.viewController = viewController
-    }
+    private var disposeBag = DisposeBag()
 
     func load() {
         refresh()
     }
 
     func willDisappear(_ animated: Bool) {
-        filmsSearchKommand?.cancel()
+        disposeBag = DisposeBag()
     }
 
     func search(_ query: String, type: String, page: Int = 1) {
-        guard filmsSearchKommand?.state != .running else {
-            return
-        }
-        filmsSearchKommand = filmsInteractor.films(query, type: FilmsInteractorSearchType(rawValue: type), page: page, onSuccess: { films, total in
-            self.query = query
-            self.type = type
-            self.page = page
-            self.total = total
-            if page == 1 {
-                self.films = films
-            } else {
-                self.films.append(contentsOf: films)
-            }
-        }, onError: { error in
-            self.viewController?.showAlert(error.localizedDescription, completion: {
-                self.viewController?.reloadData()
-            })
-        }).execute()
+        filmsInteractor.films(query, type: FilmsInteractorSearchType(rawValue: type), page: page)
+            .subscribe(onSuccess: {
+                self.query.value = query
+                self.type = type
+                self.page = page
+                self.total = $0.total
+                if page == 1 {
+                    self.films.value = $0.films
+                } else {
+                    self.films.value.append(contentsOf: $0.films)
+                }
+                self.error.value = nil
+            }, onError: {
+                self.error.value = $0
+            }).disposed(by: disposeBag)
     }
 
     func refresh() {
-        search(query, type: type)
+        search(query.value, type: type)
     }
 
     func loadMore() {
-        guard let total = total, films.count < total else {
+        guard let total = total, films.value.count < total else {
             return
         }
-        search(query, type: type, page: page + 1)
+        search(query.value, type: type, page: page + 1)
     }
 
 }

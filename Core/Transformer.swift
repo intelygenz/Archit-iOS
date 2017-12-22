@@ -5,20 +5,30 @@
 import Foundation
 
 public protocol Transformer {
-    associatedtype Source
+    associatedtype Source: Codable
     associatedtype Result
-    func transform(source: Source) -> Result?
-    func transform(source: [Source]) -> [Result]
-    func transform(result: Result) -> Source?
-    func transform(result: [Result]) -> [Source]
+    func transform(source: Source) throws -> Result
+    func transform(source: [Source]) throws -> [Result]
+    func transform(result: Result) throws -> Source
+    func transform(result: [Result]) throws -> [Source]
 }
 
 public extension Transformer {
-    func transform(source: [Source]) -> [Result] {
-        return source.flatMap({ return transform(source: $0) })
+
+    func transform(source: Source) throws -> Result {
+        throw ServiceTaskError.parserError(message: "You must define your Transformer implementation.", underlying: nil)
     }
 
-    func transform(result: [Result]) -> [Source] {
-        return result.flatMap({ return transform(result: $0) })
+    func transform(source: [Source]) throws -> [Result] {
+        return try source.flatMap({ return try transform(source: $0) })
     }
+
+    func transform(result: Result) throws -> Source {
+        throw ServiceTaskError.parserError(message: "You must define your Transformer implementation.", underlying: nil)
+    }
+
+    func transform(result: [Result]) throws -> [Source] {
+        return try result.flatMap({ return try transform(result: $0) })
+    }
+
 }

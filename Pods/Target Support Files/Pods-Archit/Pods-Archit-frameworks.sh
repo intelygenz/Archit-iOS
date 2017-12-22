@@ -106,6 +106,8 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Kommander/Kommander.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ObjcExceptionBridging/ObjcExceptionBridging.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Reusable/Reusable.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/XCGLogger/XCGLogger.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/NetClient/Net.framework"
 fi
@@ -114,6 +116,8 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Kommander/Kommander.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ObjcExceptionBridging/ObjcExceptionBridging.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Reusable/Reusable.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/XCGLogger/XCGLogger.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/NetClient/Net.framework"
 fi
